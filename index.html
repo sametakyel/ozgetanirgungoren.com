@@ -43,19 +43,20 @@ main {animation:arkaplan 10s linear infinite;display:flex;flex-direction:column;
 #sosyalkutu button {border:0;outline:0;padding:8px 14px;min-width:60px;background:orange;color:#fff}
 #sosyalkutu label {display:block;width:90%;text-align:center;letter-spacing:-0.6px}
 
-.kutu {z-index:5;position:relative;display:flex;width:100%;height:100%;background:#aaa;overflow:hidden}
-.kutu::before {z-index:15;content:"";position:absolute;background:#F08080;width:180px;height:180px;transform:rotate(45deg);margin:-100px}
-.akutu {display:flex;justify-content:flex-start;align-items:flex-start;min-width:200%;height:100%}
-.gkutu {display:flex;width:50%;height:100%;background:#fff;transition:0.5s all;justify-content:center;align-items:center;flex-direction:column}
+.kutu {z-index:5;position:relative;display:flex;width:100%;background:#aaa;overflow:hidden;margin:0;padding:0}
+.kutum::before {z-index:15;content:"";position:absolute;background:#F08080;width:180px;height:180px;transform:rotate(45deg);margin:-100px}
+.akutu {display:flex;justify-content:flex-start;align-items:flex-start;min-width:200%;}
+.gkutu {display:flex;width:50%;height:100%;background:#fff;transition:0.5s all;justify-content:center;align-items:center;flex-direction:column;marign:0;padding:0}
 .gkutu label {margin:15px 0;display:block;width:80%;font:18px Arial}
 .gkutu button {border:0;outline:0;padding:14px 22px;margin:10px 0;min-width:120px;background:#3CB371;color:#fff}
-.gkutu img {object-fit:cover;border-radius:15px;box-shadow:0px 3px 3px 1px #ccc;margin:15px 0}
+.gkutu img {object-fit:cover;border-radius:15px;margin:15px 0}
 .ykutu {background:#fff;display:flex;float:left;flex-direction:column;transition:0.5s all;width:40%;height:100%;padding:60px 0}
 .ykutu li {font:16px Arial}
 .ykutu h1 {padding:15px;color:orange;text-align:left}
 .ssolakaydir {transform:translateX(-80%) scale(0.9);opacity:0.8}
 .solakaydir {transform:translateX(-100%);}
 .ykapat {border:0;outline:0;padding:8px 14px;margin:10px 0;margin-left:15px;min-width:80px;background:#F08080;color:#fff;margin-top:20px;display:inline-block;width:50px}
+.kutu ul {list-style:none;margin:0 15px;padding:0}
 
 #menu {display:block;width:40px;height:40px}
 #menu span {pointer-events;none;display:block;width:40px;height:4px;background:black;transition:0.5s all}
@@ -65,13 +66,13 @@ main {animation:arkaplan 10s linear infinite;display:flex;flex-direction:column;
 .spb {transform:rotate(45deg) translateY(5px) translateX(5px)}
 .spi {transform:rotate(-45deg) translateY(-4px) translateX(5px)}
 
-#tamekran {padding:60px 0;margin:25px 0;display:flex;flex-wrap:wrap;justify-content:center;background:linear-gradient(135deg, rgba(0,0,0, 0.5), rgba(50, 50, 0, 0.88)),url(ozgetanir_rehabilitasyon_merkezi.jpg);background-position:center;background-size:cover}
+#tamekran {padding:0px 5%;box-sizing:border-box;display:flex;flex-wrap:wrap;justify-content:center;background:linear-gradient(135deg, rgba(0,0,0, 0.5), rgba(50, 50, 0, 0.88)),url(ozgetanir_rehabilitasyon_merkezi.jpg);background-position:center;background-size:cover;height:80%}
 #tamekran div {width:33%;display:flex;flex-direction:column;justify-content:center;align-items:center}
-#tamekran h1 {color:#fff;padding:8px;margin:15px 0;box-sizing:border-box;width:95%;font-weight:bold;font-family: "Arial", Times, serif;letter-spacing:-1px;font-size:2.2rem;text-align:center}
-#tamekran label {font:14px Arial;color:#eee}
+#tamekran h1 {color:#fff;padding:0px;margin:15px 0;box-sizing:border-box;width:95%;font-weight:bold;font-family: "Arial", Times, serif;letter-spacing:-1px;font-size:2.2rem;text-align:center}
+#tamekran label {display:inline-block;width:100%;text-align:center;font:14px Arial;color:#eee}
 #tamekran img {filter:invert(1);margin:15px 0}
 #tamekran a{text-decoration:none}
-#tamekran button {border:0;outline:0;padding:2px 14px;margin:55px 0 0 0;min-width:160px;background:tomato;color:#fff;display:flex;align-items:center;font:bold 16px Arial}
+#tamekran button {border:0;outline:0;padding:8px 16px;margin:55px 0 0 0;min-width:160px;background:tomato;color:#fff;display:flex;align-items:center;font:bold 16px Arial}
 #tamekran button img {margin-right:10px}
 
 #adres {overflow:hidden;padding:25px 0}
@@ -167,19 +168,34 @@ footer div {width:90%}
 </div>
 </section>
 
-<section id="tamekran">
-<h1>BİZE ULAŞMAK İÇİN</h1>
-<div>
-<img src="mail.png" height="54" width="auto"/><label> Mail Atabilirsiniz</label>
+<div class="kutu" id="iletisim">
+ <div class="akutu">
+	<div class="gkutu">
+	<section id="tamekran">
+	<h1>BİZE ULAŞMAK İÇİN</h1>
+	<div>
+	<img src="mail.png" height="54" width="auto"/><label> Mail Atabilirsiniz</label>
+	</div>
+	<div>
+	<img src="tel.png" height="54" width="auto" /><label> Telefon Açabilirsiniz</label>
+	</div>
+	<div>
+	<img src="sosyal.png" height="54" width="auto" /><label> Sosyal Medya Üzerinden</label>
+	</div>
+	<a href="#iletisim"><button class="kkaydir ">&#8594; İLETİŞİM BİLGİLERİ</button></a>
+	</section>
+	</div>
+	<div class="ykutu">
+	<h1>İLETİŞİM BİLGİLERİ</h1>
+	<ul>
+		<li><h3>TELEFON</h3><a href="tel:02827680080">0282 768 0080</a></li>
+		<li><h3>MAİL</h3><a href="mailto:ozgetanirgungoren@gmail.com">ozgetanirgungoren@gmail.com</a></li>
+		<li><h3>ADRES</h3>Kemalpaşa, Yiğit Sk. No:25, 59600 </br>Saray/Tekirdağ</li>
+	</ul>
+	<button class="ykapat">KAPAT</button>
+	</div>
+ </div>
 </div>
-<div>
-<img src="tel.png" height="54" width="auto" /><label> Telefon Açabilirsiniz</label>
-</div>
-<div>
-<img src="sosyal.png" height="54" width="auto" /><label> Sosyal Medya Üzerinden</label>
-</div>
-<a href="#adres"><button><img src="map.png" width="24" height="24"><span>ADRES BİLGİSİ</span></button></a>
-</section>
 
 <section id="adres">
 <h1> NEREDEYİZ ? </h1>
@@ -190,12 +206,12 @@ footer div {width:90%}
 <footer id="adresalt">
 <div>
 	<h3>İLETİŞİM</h3>
-<ul>
-<li><span>Telefon</span></br> 0282 768 0080</li>
-<li><span>Adres</span></br> Kemalpaşa, Yiğit Sk. No:25, 59600 Saray/Tekirdağ</li>
-<li><span>Mail</span></br> ozgetanirgungoren@gmail.com</li>
-</ul>
-</div>
+	<ul>
+		<li><span>Telefon</span></br><a href="tel:02827680080"> 0282 768 0080</a></li>
+		<li><span>Mail</span></br> <a href="mailto:ozgetanirgungoren@gmail.com">ozgetanirgungoren@gmail.com</a></li>
+		<li><span>Adres</span></br> Kemalpaşa, Yiğit Sk. No:25, 59600 Saray/Tekirdağ</li>
+	</ul>
+	</div>
 <div>
 	<h3>EĞİTİMLERİMİZ</h3>
 	<ul>
