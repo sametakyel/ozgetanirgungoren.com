@@ -16,13 +16,17 @@
 body {height:100vh;width:100%;margin:0;padding:0}
 ::-webkit-scrollbar {height: 5px;width:8px;}
 ::-webkit-scrollbar-thumb {background: orange;border-radius: 20px;}
+button {border-radius:8px}
 
 nav {background:transparent;padding:10px 5%;box-sizing:border-box;z-index:99999;position:fixed;top:0;width:100%;display:flex;justify-content:space-between;transition:0.5s all}
 nav div {display:flex;justify-content:center;align-items:center}
 nav div a {display:block;padding:10px 16px;text-decoration:none;background:orange;color:#fff;margin:0 25px;font:bold 14px Arial;border-radius:5px}
+main h1 {color:#fff;padding:8px;margin:0;box-sizing:border-box;width:95%;font-weight:bold;font-family: "Arial", Times, serif;letter-spacing:-1px;font-size:2.2rem;text-align:center}
+h2 {color:orange;font:bold 1.8rem Arial;letter-spacing:-0.5px;width:80%;text-align:center}
 
-main h1 {color:#fff;padding:15px;box-sizing:border-box;width:95%;font-weight:bold;font-family: "Arial", Times, serif;letter-spacing:-1px;font-size:2.2rem;text-align:center}
-h2 {color:orange;font:bold 1.8rem Arial;letter-spacing:-0.5px;width:90%;text-align:center}
+#navlogo,#ozgelogo {transition:0.5s all}
+#navlogo {opacity:0}
+
 main {animation:arkaplan 10s linear infinite;display:flex;flex-direction:column;justify-content:center;align-items:center;width:100%;background:red;height:80%;background:linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(50, 50, 0, 0.76)),url(ozgetanir_rehabilitasyon_merkezi.jpg);background-position:center;background-size:cover}
 @keyframes arkaplan{
 0%{background-position:left;}
@@ -31,48 +35,61 @@ main {animation:arkaplan 10s linear infinite;display:flex;flex-direction:column;
 75%{background-position:center;}
 100%{background-position:left;}
 }
-#aniyazi {color:tomato;text-shadow:1px 1px 5px #fff}
+#aniyazi {color:#DC143C;text-shadow:1px 2px 3px #fff;min-height:65px}
 
 #sosyalkutu {margin-top:-120px;margin-bottom:25px;display:grid;grid-template-columns:33% 33% 33%;grid-gap:10px;justify-content:space-around;width:90%;margin-left:5%}
 #sosyalkutu div {display:flex;flex-direction:column;justify-content:space-around;align-items:center;padding:15px 0;background:#fff;box-shadow:0px 1px 5px 1px #ccc;border-radius:10px;box-sizing:border-box}
 #sosyalkutu div * {margin:6px 0}
-#sosyalkutu button {border:0;outline:9;padding:8px 14px;min-width:60px;background:orange;color:#fff}
+#sosyalkutu button {border:0;outline:0;padding:8px 14px;min-width:60px;background:orange;color:#fff}
 #sosyalkutu label {display:block;width:90%;text-align:center;letter-spacing:-0.6px}
 
-.kutu {position:relative;display:flex;width:100%;height:100%;background:#aaa;overflow:hidden}
+.kutu {z-index:5;position:relative;display:flex;width:100%;height:100%;background:#aaa;overflow:hidden}
+.kutu::before {z-index:15;content:"";position:absolute;background:#F08080;width:180px;height:180px;transform:rotate(45deg);margin:-100px}
 .akutu {display:flex;justify-content:flex-start;align-items:flex-start;min-width:200%;height:100%}
 .gkutu {display:flex;width:50%;height:100%;background:#fff;transition:0.5s all;justify-content:center;align-items:center;flex-direction:column}
-.gkutu label {margin:15px 0;display:block;width:90%;font:18px Arial}
-.gkutu button {border:0;outline:9;padding:8px 14px;margin:10px 0;min-width:80px;background:orange;color:#fff}
-.gkutu img {object-fit:cover;border-radius:50%;box-shadow:0px 3px 3px 1px red;margin:15px 0}
+.gkutu label {margin:15px 0;display:block;width:80%;font:18px Arial}
+.gkutu button {border:0;outline:0;padding:14px 22px;margin:10px 0;min-width:120px;background:#3CB371;color:#fff}
+.gkutu img {object-fit:cover;border-radius:15px;box-shadow:0px 3px 3px 1px #ccc;margin:15px 0}
 .ykutu {background:#fff;display:flex;float:left;flex-direction:column;transition:0.5s all;width:40%;height:100%;padding:60px 0}
 .ykutu li {font:16px Arial}
-.ykutu h1 {color:orange;text-align:left}
+.ykutu h1 {padding:15px;color:orange;text-align:left}
 .ssolakaydir {transform:translateX(-80%) scale(0.9);opacity:0.8}
 .solakaydir {transform:translateX(-100%);}
-.ykapat {border:0;outline:9;padding:8px 14px;margin:10px 0;margin-left:15px;min-width:80px;background:orange;color:#fff;margin-top:20px;display:inline-block;width:50px}
+.ykapat {border:0;outline:0;padding:8px 14px;margin:10px 0;margin-left:15px;min-width:80px;background:#F08080;color:#fff;margin-top:20px;display:inline-block;width:50px}
 
 #menu {display:block;width:40px;height:40px}
-#menu span {pointer-events;none;display:block;width:40px;height:5px;background:black;transition:0.5s all}
-#spb {margin-top:5px}
+#menu span {pointer-events;none;display:block;width:40px;height:4px;background:black;transition:0.5s all}
+#spb {margin-top:7px}
 #spi {margin-top:8px}
 #spu {margin-top:8px}
 .spb {transform:rotate(45deg) translateY(5px) translateX(5px)}
 .spi {transform:rotate(-45deg) translateY(-4px) translateX(5px)}
 
-#adres {overflow:hidden}
+#tamekran {padding:60px 0;margin:25px 0;display:flex;flex-wrap:wrap;justify-content:center;background:linear-gradient(135deg, rgba(0,0,0, 0.5), rgba(50, 50, 0, 0.88)),url(ozgetanir_rehabilitasyon_merkezi.jpg);background-position:center;background-size:cover}
+#tamekran div {width:33%;display:flex;flex-direction:column;justify-content:center;align-items:center}
+#tamekran h1 {color:#fff;padding:8px;margin:15px 0;box-sizing:border-box;width:95%;font-weight:bold;font-family: "Arial", Times, serif;letter-spacing:-1px;font-size:2.2rem;text-align:center}
+#tamekran label {font:14px Arial;color:#eee}
+#tamekran img {filter:invert(1);margin:15px 0}
+#tamekran a{text-decoration:none}
+#tamekran button {border:0;outline:0;padding:2px 14px;margin:55px 0 0 0;min-width:160px;background:tomato;color:#fff;display:flex;align-items:center;font:bold 16px Arial}
+#tamekran button img {margin-right:10px}
+
+#adres {overflow:hidden;padding:25px 0}
 #adres h1 {font-weight:bold;font-family: "Arial", Times, serif;letter-spacing:-1px;font-size:2.2rem;line-height:0;color:orange;text-align:left;width:90%;margin-left:5%;padding:0px 0:margin:0}
 #adres label {display:inline-block;width:90%;letter-spacing:-0.6px;margin:0 0 15px 5%}
 section {width:100%;overflow-x:scroll;margin:5px 0}
-#section {display:flex;width:2300px;justify-content:space-between;padding:50px 2.5%;box-sizing:border-box;}
-#section div {display:flex;font:18px Times New Roman;flex-direction:column;justify-content:center;align-items:center;box-shadow:0px 1px 5px 1px #ccc;padding:25px;border-radius:6px;margin-right:25px}
+#section {display:flex;width:2300px;justify-content:space-between;padding:20px 2.5%;box-sizing:border-box;}
+#section div {display:flex;font:18px Times New Roman;flex-direction:column;justify-content:center;align-items:center;box-shadow:0px 1px 5px 1px #ccc;padding:55px 25px;border-radius:6px;margin-right:25px}
 
-footer {background:#fff;color:#000;width:100%;border-top:0.5px solid #bbb;padding:25px 5%;box-sizing:border-box;margin-top:25px;display:flex;justify-content:space-around;align-items:flex-start}
-footer div {margin:25px 0}
-footer h3 {margin:0;padding:0}
+footer {z-index:12;position:relative;overflow:hidden;background:#fff;color:#000;width:100%;border-top:0.5px solid #bbb;padding:25px 5%;box-sizing:border-box;margin-top:25px;display:flex;justify-content:space-around;align-items:flex-start}
+footer::before {z-index:15;content:"";position:absolute;background:#F08080;left:0;bottom:0;width:200px;height:200px;transform:rotate(45deg);margin:-150px -100px}
+footer::after {z-index:15;content:"";position:absolute;background:orange;right:0;bottom:0;width:200px;height:200px;transform:rotate(45deg);margin:-150px -100px}
+footer div {margin:15px 0;border-bottom:0.5px solid #bbb;}
+footer h3 {margin:0;padding:0;color:orange}
 footer ul {list-style:none;margin:0;padding:0}
 footer li {margin:15px 0}
 footer span {color:#aaa}
+footer a {text-decoration:none;color:#3CB371}
 
 #acilanmenu {display:none;position:fixed;z-index:998;width:100%;height:100%;background:#fff;justify-content:center;align-items:center;flex-direction:column}
 #acilanmenu a {display:block;text-decoration:none;font:bold 2rem Arial;margin:25px 0;color:#666}
@@ -80,6 +97,7 @@ footer span {color:#aaa}
 @media only screen and (max-width: 768px) {
 #sosyalkutu {display:flex;flex-direction:column}
 footer {flex-direction:column}
+footer div {width:90%}
 }
 </style>
 </head>
@@ -90,7 +108,7 @@ footer {flex-direction:column}
 <a href="#section">EĞİTİMLERİMİZ</a>
 </div>
 <nav>
-<img src="ozgetanir.png" width="64" height="48" />
+<img src="ozgetanir.png" width="64" height="48" id="navlogo"/>
 <div>
 <a href="tel:02827680080"> TELEFON </a>
 <div id="menu">
@@ -101,10 +119,11 @@ footer {flex-direction:column}
 </div>
 </nav>
 <main>
-<h1>ÖZGE TANIR GÜNGÖREN</br><label id="aniyazi"></label></h1>
+<img src="ozgetanir.png" width="168" height="auto" id="ozgelogo"/>
+<h1>ÖZGE TANIR GÜNGÖREN</br><label id="aniyazi">Özel Eğitim ve Rehabilitasyon Merkezi</label></h1>
 </main>
 <div id="sosyalkutu">
-<div><img src="fb.png" width="72" height="72"><label>Facebook adresimizden bizleri takip edebilirsiniz</label><a href="https://www.facebook.com/ozgetanirgungoren/"><button>Git</button></a></div>
+<div><img src="fb.png" width="72" height="72"><label>Facebook adresimizden son paylaşımlarımızı takip edebilirsiniz</label><a href="https://www.facebook.com/ozgetanirgungoren/"><button>Git</button></a></div>
 <div><img src="insta.png" width="72" height="72"><label>Instagram hesabımızdan detaylı resimlere ulaşabilirsiniz</label><a href="https://www.instagram.com/ozgetanirgungorenozelegitim/"><button>Git</button></a></div>
 <div><img src="map.png" width="72" height="72"><label>Kemalpaşa, Yiğit Sk. No:25, 59600 Saray/Tekirdağ</label><a href="#adresalt"><button>NEREDEYİZ ?</button></a></div>
 </div>
@@ -114,7 +133,7 @@ footer {flex-direction:column}
 	<img src="ozgetanir_rehabilitasyon_merkezi.jpg" width="240" height="240" >
 	<h2>Özge Tanır Güngören Özel Eğitim ve Rehabilitasyon Merkezi'nde</h2>
 	<label>Özel eğitim ve rehabilitasyon merkezimiz kapsamında çocuklarımız çok daha güvenli, rahat ve huzurlu bir eğitim almanın ayrıcalıklarını deneyimler. Son teknoloji modern ortamlarda birçok yönden eğitim alan çocuklar bilişsel bağlamda eğitim alırken aynı zamanda sosyal ortamlarda bulunma becerisi de kazanır.</label>
-	<a href="#egitimler"><button class="kkaydir ">> Eğitimler</button></a>
+	<a href="#egitimler"><button class="kkaydir ">&#8594; EĞİTİMLER</button></a>
 	</div>
 	<div class="ykutu">
 	<h1>EĞİTİMLERİMİZ</h1>
@@ -147,6 +166,21 @@ footer {flex-direction:column}
 	<div><label>Davranışsal Bozukluk Eğitimi</label></div>
 </div>
 </section>
+
+<section id="tamekran">
+<h1>BİZE ULAŞMAK İÇİN</h1>
+<div>
+<img src="mail.png" height="54" width="auto"/><label> Mail Atabilirsiniz</label>
+</div>
+<div>
+<img src="tel.png" height="54" width="auto" /><label> Telefon Açabilirsiniz</label>
+</div>
+<div>
+<img src="sosyal.png" height="54" width="auto" /><label> Sosyal Medya Üzerinden</label>
+</div>
+<a href="#adres"><button><img src="map.png" width="24" height="24"><span>ADRES BİLGİSİ</span></button></a>
+</section>
+
 <section id="adres">
 <h1> NEREDEYİZ ? </h1>
 <label>Kemalpaşa, Yiğit Sk. No:25, 59600 Saray/Tekirdağ</label>
@@ -155,7 +189,7 @@ footer {flex-direction:column}
 
 <footer id="adresalt">
 <div>
-<h3>İLETİŞİM</h3>
+	<h3>İLETİŞİM</h3>
 <ul>
 <li><span>Telefon</span></br> 0282 768 0080</li>
 <li><span>Adres</span></br> Kemalpaşa, Yiğit Sk. No:25, 59600 Saray/Tekirdağ</li>
@@ -177,13 +211,14 @@ footer {flex-direction:column}
 	</ul>
 </div>
 <div>
-<ul class="menu-footer">
-	<li><a href="">otizm</a></li>
-	<li><a href="">fizik tedavi, fizyoterapi</a></li>
-	<li><a href="">tekirdağ saray</a></li>
-	<li><a href="">zihin engelliler eğitimi</a></li>
-	<li><a href="">saray özel eğitim</a></li>
-	<li><a href="">öğrenme güçlüğü ve disleksi</a></li>
+	<h3>ETİKETLER</h3>
+<ul>
+	<li><a href="https://ozgetanirgungoren.com/">down sendromu</a></li>
+	<li><a href="https://ozgetanirgungoren.com/">aile danışmanlığı</a></li>
+	<li><a href="https://ozgetanirgungoren.com/">tekirdağ saray</a></li>
+	<li><a href="https://ozgetanirgungoren.com/">zihin engelliler eğitimi</a></li>
+	<li><a href="https://ozgetanirgungoren.com/">saray özel eğitim</a></li>
+	<li><a href="https://ozgetanirgungoren.com/">öğrenme güçlüğü ve disleksi</a></li>
 </ul>
 </div>
 </footer>
@@ -230,10 +265,14 @@ footer {flex-direction:column}
 	})
  }
  window.addEventListener("scroll", function(){
-	if(document.body.scrollTop > 220 || document.documentElement.scrollTop > 220){
-	document.querySelectorAll("nav")[0].style.background = "#fff"
+	if(document.body.scrollTop > 150 || document.documentElement.scrollTop > 150){
+	document.querySelectorAll("nav")[0].style.background = "#fff";
+	document.getElementById("navlogo").style.opacity = "1";
+	document.getElementById("ozgelogo").style.opacity = "0"
 	}else{
 	document.querySelectorAll("nav")[0].style.background = "transparent"
+	document.getElementById("navlogo").style.opacity = "0";
+	document.getElementById("ozgelogo").style.opacity = "1"
 	}
  })
  </script>
