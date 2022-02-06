@@ -9,12 +9,12 @@ button {border-radius:8px}
 nav {background:transparent;padding:10px 5%;box-sizing:border-box;z-index:99999;position:fixed;top:0;width:100%;display:flex;justify-content:center;transition:0.5s all}
 nav div {display:flex;justify-content:center;align-items:center}
 nav div a {display:flex;justify-content:center;align-items:center;padding:8px 0px;text-decoration:none;color:#000;min-width:95px;text-align:center;margin:0 5px;font:bold 12px Arial;border-radius:5px}
-nav div a:nth-child(1){background:rgba(255,255,255,0.75);box-shadow:0px 1px 2px 1px rgba(0,0,0,0.15)}
 nav div a:nth-child(2){background:rgba(255,255,255,0.75);box-shadow:0px 1px 2px 1px rgba(0,0,0,0.15)}
 nav div a:nth-child(3){background:rgba(255,255,255,0.75);box-shadow:0px 1px 2px 1px rgba(0,0,0,0.15)}
-nav div a:nth-child(1):hover{color:#fff;background:purple}
-nav div a:nth-child(2):hover{color:#fff;background:green}
-nav div a:nth-child(3):hover{color:#fff;background:tomato}
+nav div a:nth-child(4){background:rgba(255,255,255,0.75);box-shadow:0px 1px 2px 1px rgba(0,0,0,0.15)}
+nav div a:nth-child(2):hover{color:#fff;background:purple}
+nav div a:nth-child(3):hover{color:#fff;background:green}
+nav div a:nth-child(4):hover{color:#fff;background:tomato}
 #linkler span {margin-left:5px}
 #logoyazi {display:none;background:linear-gradient(to right,#fff,orange);padding:5px 8px;margin-left:3px;font:italic 14px Arial;border-top-right-radius:10px;border-bottom-right-radius:10px;}
 
@@ -91,6 +91,19 @@ footer li {margin:15px 0}
 footer span {color:#aaa}
 footer a {text-decoration:none;color:#3CB371}
 #sametakyel {position:absolute;z-index:16;right:5px;bottom:5px;color:#000;font:small-caps 12px Arial}
+
+#telefonlar {position:absolute;display:none;flex-direction:column;margin-left:-210px;margin-top:120px}
+#telefonlar a{padding:10px 0;color:#000;margin:3px 0}
+#telefonlar a:hover {background:Green;color:#fff}
+#iletisimkutusu {
+position:fixed;z-index:99999;display:none;justify-content:center;align-items:center;width:100%;height:100%;background:rgba(0,0,0,0.6)
+}
+#iletisimkutusu img {margin-right:10px}
+#iletisimkutusu div {position:relative;width:80%;background:#fff;border-radius:8px;box-shadow:0px 1px 8px 1px #444;padding:20px 30px;box-sizing:border-box;display:flex;flex-wrap:wrap;justify-content:space-around;font-size:1rem}
+#iletisimkutusu h1 {display:block;width:100%;font:bold small-caps 2rem Times New Roman;border-bottom:1px solid orange;padding:5px 0;margin-top:-5px}
+#iletisimkutusu a {display:flex;justify-content:flex-start;align-items:center;width:49%;color:#000;text-decoration:none;margin:10px 0}
+#iletisimkutusu h2 {margin-top:15px}
+#kikutusu {display:block;position:absolute;right:0;top:0;width:30px;padding:5px 0;text-align:center;background:tomato;color:#fff;font-weight:bold;border-radius:50%;cursor:pointer;margin:-10px -10px}
 
 @media only screen and (max-width: 768px) {
 #sosyalkutu {display:flex;flex-direction:column}
