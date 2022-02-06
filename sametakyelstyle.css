@@ -93,13 +93,13 @@ footer a {text-decoration:none;color:#3CB371}
 #sametakyel {position:absolute;z-index:16;right:5px;bottom:5px;color:#000;font:small-caps 12px Arial}
 
 #telefonlar {position:absolute;display:none;flex-direction:column;margin-left:-210px;margin-top:120px}
-#telefonlar a{padding:10px 0;color:#000;margin:3px 0}
+#telefonlar a{padding:10px 0;color:#000;margin:3px 0;background:rgba(255,255,255,0.75);}
 #telefonlar a:hover {background:Green;color:#fff}
 #iletisimkutusu {
 position:fixed;z-index:99999;display:none;justify-content:center;align-items:center;width:100%;height:100%;background:rgba(0,0,0,0.6)
 }
 #iletisimkutusu img {margin-right:10px}
-#iletisimkutusu div {position:relative;width:80%;background:#fff;border-radius:8px;box-shadow:0px 1px 8px 1px #444;padding:20px 30px;box-sizing:border-box;display:flex;flex-wrap:wrap;justify-content:space-around;font-size:1rem}
+#iletisimkutusu div {position:relative;width:90%;background:#fff;border-radius:8px;box-shadow:0px 1px 8px 1px #444;padding:15px 15px;box-sizing:border-box;display:flex;flex-wrap:wrap;justify-content:space-around;font-size:10px}
 #iletisimkutusu h1 {display:block;width:100%;font:bold small-caps 2rem Times New Roman;border-bottom:1px solid orange;padding:5px 0;margin-top:-5px}
 #iletisimkutusu a {display:flex;justify-content:flex-start;align-items:center;width:49%;color:#000;text-decoration:none;margin:10px 0}
 #iletisimkutusu h2 {margin-top:15px}
