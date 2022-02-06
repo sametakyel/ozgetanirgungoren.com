@@ -12,7 +12,7 @@
 <link rel="shortcut icon" type="image/png" href="ozgetanir.png" />
 <meta content="ozgetanirgundogan.com" name="author">
 <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
-<link media="all" rel="stylesheet" href="ozgetanirgungoren.css" />
+<link media="all" rel="stylesheet" href="sametakyel.css" />
 <meta property="og:locale" content="tr_TR" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="Özge Tanır Güngören Özel Eğitim ve Rehabilitasyon Merkezi" />
@@ -61,6 +61,18 @@
 </script>
 </head>
 <body>
+<div id="iletisimkutusu">
+<div>
+<span id="kikutusu">X</span>
+<h1>İLETİŞİM</h1>
+<a href="tel:02827680080"><img src="tel.png" width="30" height="auto"/>0282 768 0080</a>
+<a href="tel:05537806743"><img src="tel.png" width="30" height="auto"/>0553 780 6743</a>
+<a href="mailto:ozgetanirgungoren@gmail.com"><img src="mail.png" height="30" width="auto"/><span>ozgetanirgungoren</br>@gmail.com</span></a>
+<a><img src="map.png" width="35" height="auto"/><label>Kemalpaşa, Yiğit Sk. No:25, 59600 </br>Saray/Tekirdağ</label></a>
+<a href="https://www.facebook.com/ozgetanirgungoren/"><img src="fb.png" width="30" height="30"> Facebook Sayfamız</a>
+<a href="https://www.instagram.com/ozgetanirgungorenozelegitim/"><img src="insta.png" width="30" height="30"> İnstargram Sayfamız</a>
+</div>
+</div>
 <div id="acilanmenu">
 	<div>
 	<a href="tel:02827680080"><img src="tel.png" height="38" width="auto"/><span>TELEFON</span> </a>
@@ -74,7 +86,11 @@
 	<span id="logoyazi"></span>
 	</div>
 	<div id="linkler">
-	<a href="tel:02827680080"><img src="tel.png" height="18" width="auto"/><span>TELEFON</span> </a>
+	<div id="telefonlar">
+		<a href="tel:02827680080">0282 768 0080</a>
+		<a href="tel:05537806743">0553 780 6743</a>
+	</div>
+	<a id="teller" onclick="telac()"><img src="tel.png" height="18" width="auto"/><span>TELEFON</span></a>
 	<a href="mailto:ozgetanirgungoren@gmail.com"><img src="mail.png" height="20" width="auto"/><span>MAİL</span></a>
 	<a href="#adres"><img src="map.png" height="18" width="auto"/><span>ADRES</span></a>
 	</div>
@@ -107,12 +123,12 @@
 	<div class="ykutu">
 	<h1>EĞİTİMLERİMİZ</h1>
 	<ul>
+		<li>Dil ve Konuşma Güçlüğü Destek Eğitim Programı</li>
 		<li>Zihinsel Engelli Bireyler Destek Eğitim Programı</li>
 		<li>Yaygın Gelişimsel Bozukluklar Destek Eğitim Programı</li>
 		<li>Bedensel Engelliler Destek Eğitim Programı</li>
 		<li>Özel Öğrenme Güçlüğü Destek Eğitim Programı</li>
 		<li>Down Sendromu Eğitimi</li>
-		<li>Dil ve Konuşma Bozuklukları</li>
 		<li>Aile Danışmanlığı</li>
 		<li>Duyu Bütünleme</li>
 		<li>Davranışsal Bozukluk Eğitimi</li>
@@ -124,12 +140,13 @@
 
 <section>
 <div id="section">
+	
+	<div><label>Dil ve Konuşma Güçlüğü Destek Eğitim Programı</label></div>
 	<div><label>Zihinsel Engelli Bireyler Destek Eğitim Programı</label></div>
 	<div><label>Yaygın Gelişimsel Bozukluklar Destek Eğitim Programı</label></div>
 	<div><label>Bedensel Engelliler Destek Eğitim Programı</label></div>
 	<div><label>Özel Öğrenme Güçlüğü Destek Eğitim Programı</label></div>
 	<div><label>Down Sendromu Eğitimi</label></div>
-	<div><label>Dil ve Konuşma Bozuklukları</label></div>
 	<div><label>Aile Danışmanlığı</label></div>
 	<div><label>Duyu Bütünleme</label></div>
 	<div><label>Davranışsal Bozukluk Eğitimi</label></div>
@@ -142,13 +159,13 @@
 	<section id="tamekran">
 	<h1>BİZE ULAŞMAK İÇİN</h1>
 	<div>
-	<img src="mail.png" height="54" width="auto"/><label> Mail Atabilirsiniz</label>
+	<img onclick="ikutusuac()" src="mail.png" height="54" width="auto"/><label> Mail Atabilirsiniz</label>
 	</div>
 	<div>
-	<img src="tel.png" height="54" width="auto" /><label> Telefon Açabilirsiniz</label>
+	<img onclick="ikutusuac()" src="tel.png" height="54" width="auto" /><label> Telefon Açabilirsiniz</label>
 	</div>
 	<div>
-	<img src="sosyal.png" height="54" width="auto" /><label> Sosyal Medya Üzerinden</label>
+	<img onclick="ikutusuac()" src="sosyal.png" height="54" width="auto" /><label> Sosyal Medya Üzerinden</label>
 	</div>
 	<a href="#iletisim"><button class="kkaydir ">&#8594; İLETİŞİM İÇİN TIKLAYINIZ</button></a>
 	</section>
@@ -156,7 +173,7 @@
 	<div class="ykutu">
 	<h1>İLETİŞİM BİLGİLERİ</h1>
 	<ul>
-		<li><h3>TELEFON</h3><a href="tel:02827680080">0282 768 0080</a></li>
+		<li><h3>TELEFON</h3><a href="tel:02827680080">0282 768 0080</a></br><a href="tel:05537806743">05537806743</a></li>
 		<li><h3>MAİL</h3><a href="mailto:ozgetanirgungoren@gmail.com">ozgetanirgungoren@gmail.com</a></li>
 		<li><h3>ADRES</h3>Kemalpaşa, Yiğit Sk. No:25, 59600 </br>Saray/Tekirdağ</li>
 	</ul>
@@ -175,7 +192,7 @@
 <div>
 	<h3>İLETİŞİM</h3>
 	<ul>
-		<li><span>Telefon</span></br><a href="tel:02827680080"> 0282 768 0080</a></li>
+		<li><span>Telefon</span></br><a href="tel:02827680080"> 0282 768 0080</a></br><a href="tel:05537806743">05537806743</a></li>
 		<li><span>Mail</span></br> <a href="mailto:ozgetanirgungoren@gmail.com">ozgetanirgungoren@gmail.com</a></li>
 		<li><span>Adres</span></br> Kemalpaşa, Yiğit Sk. No:25, 59600 Saray/Tekirdağ</li>
 	</ul>
@@ -183,12 +200,12 @@
 <div>
 	<h3>EĞİTİMLERİMİZ</h3>
 	<ul>
+		<li>Dil ve Konuşma Güçlüğü Destek Eğitim Programı</li>
 		<li>Zihinsel Engelli Bireyler Destek Eğitim Programı</li>
 		<li>Yaygın Gelişimsel Bozukluklar Destek Eğitim Programı</li>
 		<li>Bedensel Engelliler Destek Eğitim Programı</li>
 		<li>Özel Öğrenme Güçlüğü Destek Eğitim Programı</li>
 		<li>Down Sendromu Eğitimi</li>
-		<li>Dil ve Konuşma Bozuklukları</li>
 		<li>Aile Danışmanlığı</li>
 		<li>Duyu Bütünleme</li>
 		<li>Davranışsal Bozukluk Eğitimi</li>
@@ -197,6 +214,7 @@
 <div>
 	<h3>ETİKETLER</h3>
 <ul>
+	<li><a href="https://ozgetanirgungoren.com/">tekirdağ dil ve konuşma terapisi</a></li>
 	<li><a href="https://ozgetanirgungoren.com/">down sendromu</a></li>
 	<li><a href="https://ozgetanirgungoren.com/">aile danışmanlığı</a></li>
 	<li><a href="https://ozgetanirgungoren.com/">tekirdağ saray</a></li>
@@ -207,6 +225,6 @@
 </div>
 <a href="https://sametakyel.github.io" id="sametakyel">Samet AKYEL 2022</a>
 </footer>
-<script async src="ozgetanirgungoren.js"></script>
+<script async src="sametakyel.js"></script>
 </body>
 </html>
