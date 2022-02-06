@@ -1,4 +1,12 @@
- window.onload = function(){}
+document.getElementById("kikutusu").addEventListener("click",function(){document.getElementById("iletisimkutusu").style.display = "none"})
+function ikutusuac(){document.getElementById("iletisimkutusu").style.display = "flex"}
+function telac(){
+	if(document.getElementById("telefonlar").style.display == "flex"){
+	document.getElementById("telefonlar").style.display = "none";
+	}else{document.getElementById("telefonlar").style.display = "flex";
+	}
+} 
+window.onload = function(){}
  var kButon = document.querySelectorAll(".kkaydir");
  var gkutu = document.querySelectorAll(".gkutu");
  var ykutu = document.querySelectorAll(".ykutu");
