@@ -345,18 +345,75 @@ display:block;text-align:center;width:80%;
 }
 
 .news-link{font-size:11px;font-weight:700;color:var(--accent-color);text-transform:uppercase;display:flex;align-items:center;gap:6px;transition:color 0.3s ease}.news-link i{font-size:10px;transition:transform 0.2s ease,color 0.3s ease}.news-card:hover .news-link i{transform:translateX(3px)}.slider-navigation{display:flex;gap:20px;margin-top:24px;padding-left:8px}.nav-arrow{background:0 0;border:none;color:var(--text-gray);font-size:24px;cursor:pointer;transition:color .3s ease}.nav-arrow:hover{color:var(--accent-color)}.fixed-info-btn{position:fixed;bottom:24px;right:-150px;background-color:var(--accent-color);color:#ffffff !important;display:flex;align-items:center;gap:8px;padding:12px 20px;border-radius:30px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;box-shadow:0 4px 15px rgba(0,0,0,0.15);cursor:pointer;z-index:90;transition:right 0.5s cubic-bezier(0.16,1,0.3,1),background-color 0.3s ease}.fixed-info-btn.visible{right:24px}.fixed-info-btn:hover{transform:scale(1.03)}.info-form-panel{position:fixed;top:0;right:-100%;width:50%;height:100vh;background-color:var(--bg-card);border-left:1px solid var(--border-color);z-index:1000;transition:right 0.5s cubic-bezier(0.16,1,0.3,1),background-color 0.3s ease,border-color 0.3s ease;padding:15px 20px;display:flex;flex-direction:column;box-shadow:-10px 0 30px rgba(0,0,0,0.05)}.info-form-panel.open{right:0}.info-panel-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px;border-bottom:1px solid var(--border-color);padding-bottom:15px}.info-panel-header h3{font-size:20px;font-weight:700;text-transform:uppercase;color:var(--accent-color)}.info-panel-close{background:0 0;border:none;color:var(--text-white);font-size:24px;cursor:pointer}.info-panel-body{flex:1;overflow-y:auto}.form-group{margin-bottom:20px;display:flex;flex-direction:column;gap:6px}.form-group label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-gray)}.form-group input,.form-group textarea{width:100%;padding:14px;background-color:var(--bg-dark);border:1px solid var(--border-color);color:var(--text-white);font-size:13px;border-radius:4px;transition:border-color 0.2s ease,background-color 0.3s ease}.form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--accent-color)}.form-submit-btn{width:100%;padding:16px 8px;background-color:var(--accent-color);color:#ffffff;border:none;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;border-radius:4px;cursor:pointer;margin-top:10px;transition:opacity 0.2s ease}.form-submit-btn:hover{opacity:0.9}.form-overlay{position:fixed;inset:0;background-color:rgba(0,0,0,0.4);z-index:999;opacity:0;pointer-events:none;transition:opacity 0.4s ease}body.dark-theme .form-overlay{background-color:rgba(0,0,0,0.7)}.form-overlay.visible{opacity:1;pointer-events:auto}@media (max-width:767px){.info-form-panel{width:80%;right:-100%;padding:30px 20px}.team-container{flex-direction:column}.team-card{width:100%}}@media (min-width:768px){.team-container{flex-direction:row;flex-wrap:wrap;gap:20px}.team-card{width:calc((100% - 40px) / 3)}.side-panel{width:384px;right:-384px}.side-panel.open{right:0}}
+/* Logo Sarmalayıcı Kutu */
+.loader-img-wrapper {
+    position: relative;
+    width: 90%; /* HTML'deki genişlik ayarını buraya taşıdık */
+    max-width: 400px; /* Büyük ekranlarda logonun aşırı büyümesini engeller */
+    margin: 0 auto;
+    padding: 3px; /* Çerçevenin kalınlığı kadar iç boşluk */
+    border-radius: 12px; /* Çerçevenin köşe ovali */
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Çerçevenin etrafında dönecek olan ışık çizgisi (Before ile) */
+.loader-img-wrapper::before {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    /* Çerçeve rengini buradan değiştirebilirsin (Örn: Kurumsal renginiz ve transparan geçiş) */
+    background: conic-gradient(from 0deg, transparent 20%, var(--accent-color, #FF3D00) 50%, transparent 80%);
+    animation: rotateBorder 2s linear infinite;
+    z-index: 1;
+}
+
+/* Görselin kendisi ve arka plan koruması */
+.loader-img-wrapper img {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px; /* Resmin köşeleri (wrapper'dan biraz az olmalı) */
+    z-index: 2;
+    /* Çerçevenin içindeki boşluğun loading ekranı arka planıyla aynı olması için */
+    background-color: var(--bg-card); 
+}
+
+/* Çerçevenin sadece dış sınırda kalması, resmin altına taşmaması için maskeleme (Opsiyonel ama pürüzsüz görüntü sağlar) */
+.loader-img-wrapper {
+    background: var(--bg-card);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Çerçeve Dönme Animasyonu */
+@keyframes rotateBorder {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
 
 </style>
 </head>
 <body>
 
 <div id="loadingScreen" class="loading-overlay">
-<div class="loader-content">
-	<img src="IMG_2549.png" width="90%" />
-<div class="custom-spinner"></div>
-	<p class="loader-text">Özge Tanır Güngören Rehabilitasyon ve Özel Eğitim Merkezi...</p>
+    <div class="loader-content">
+        <div class="loader-img-wrapper">
+            <img src="IMG_2549.png" alt="Logo" />
+        </div>
+        <p class="loader-text">Özge Tanır Güngören Rehabilitasyon ve Özel Eğitim Merkezi</p>
+        <div class="custom-spinner"></div>
+    </div>
 </div>
-</div>
+
 
 
 <div class="site-wrapper" id="siteWrapper">
@@ -958,7 +1015,45 @@ window.addEventListener('DOMContentLoaded', function() {
 
 <div class="footer-bottom">
 <p>© 2026 Özge Tanır Güngören Özel Eğitim ve Rehabilitasyon Merkezi. Tüm Hakları Saklıdır.</p>
-<p><a href="sametakyel.github.io">Samet Akyel</a></p>
+<div style="display: flex; justify-content: center; padding: 15px 0; width: 100%;">
+    <p style="
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 13px;
+        background-color: var(--bg-card, rgba(255, 255, 255, 0.05));
+        border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+        padding: 6px 16px;
+        border-radius: 20px;
+        color: var(--text-white, #ffffff);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+        transition: border-color 0.3s ease, background-color 0.3s ease;
+        margin: 0;
+    "
+    onmouseover="this.style.borderColor='darkorange'; this.style.backgroundColor='var(--bg-dark, rgba(0, 0, 0, 0.02))';"
+    onmouseout="this.style.borderColor='var(--border-color, rgba(255, 255, 255, 0.1))'; this.style.backgroundColor='var(--bg-card, rgba(255, 255, 255, 0.05))';">
+        
+        <span style="color: var(--text-gray, #888888); font-family: monospace; font-weight: bold;">&lt;/&gt;</span> 
+        
+        <a href="https://sametakyel.github.io" 
+           target="_blank" 
+           style="
+                text-decoration: none;
+                color: darkorange;
+                font-weight: 700;
+                display: inline-block;
+                transition: color 0.2s ease, transform 0.2s ease;
+           "
+           onmouseover="this.style.color='#ffaa00'; this.style.transform='translateY(-1px)';"
+           onmouseout="this.style.color='darkorange'; this.style.transform='translateY(0px)';">
+           Samet Akyel
+        </a> 
+        
+        tarafından tasarlanmıştır.
+    </p>
+</div>
+
 </div>
 </footer>
 
