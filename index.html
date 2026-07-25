@@ -27,11 +27,11 @@
 "@id":"https://ozgetanirgungoren.com/#organization",
 "url":"https://ozgetanirgungoren.com/",
 "logo": {
-		"@type": "ImageObject",
-		"url": "https://ozgetanirgungoren.com/ozgetanir.ico",
-		"width": 166,
-		"height": 24
-	},
+"@type": "ImageObject",
+"url": "https://ozgetanirgungoren.com/ozgetanir.ico",
+"width": 166,
+"height": 24
+},
 "name":"Özge Tanır Güngören Özel Eğitim ve Rehabilitasyon Merkezi",
 "description":"Tekirdağ Saray Özge Tanır Güngören Özel Eğitim ve Rehabilitasyon Merkezi"},
 {
@@ -795,7 +795,7 @@ loop();
 <button class="btn btn-filled" onclick="openPanel('Detay', 'Down sendromlu bireylere erken çocukluktan itibaren sunulan rehabilitasyon seansları.')">Modülü Gör</button>
 </div>
 </div>
->
+</section>
 <div class="tab-container scroll-anim" id="tabContainer">
 <div class="tab-item active" data-index="0">Otizm (OSB)</div>
 <div class="tab-item" data-index="1">Uyaran Eksikliği</div>
@@ -814,17 +814,16 @@ loop();
 <div class="tab-item" data-index="14">Down Sendromu</div>
 </div>
 
-
 <section class="gallery-fullscreen-section scroll-anim">
 <h2 class="section-main-title">Galeri</h2>
-    
 <!-- KATEGORİ FİLTRE BUTONLARI -->
 <div class="gallery-filter-wrapper">
   <button class="filter-btn active" data-category="all">Tümü</button>
-  <button class="filter-btn" data-category="bekleme">Bekleme Alanları</button>
-  <button class="filter-btn" data-category="bina">Bina Dış Cephe</button>
-  <button class="filter-btn" data-category="ofis">Ofis Projeleri</button>
-  <button class="filter-btn" data-category="okul">Okul Projeleri</button>
+  <button class="filter-btn" data-category="yonetici">Yöneticiler</button>
+  <button class="filter-btn" data-category="bina">Okul Binası</button>
+  <button class="filter-btn" data-category="bekleme">Girişler</button>
+  <button class="filter-btn" data-category="ofis">Ofisler</button>
+  <button class="filter-btn" data-category="okul">Okul İçinden</button>
 </div>
 
 <!-- GALERİ KONTEYNERİ -->
@@ -982,6 +981,9 @@ const galleryData = [
   { url: "https://ozgetanirgungoren.com/img/ofis1.jpg", category: "ofis", title: "Ofis Tasarımı 1" },
   { url: "https://ozgetanirgungoren.com/img/ofis2.jpg", category: "ofis", title: "Ofis Tasarımı 2" },
   { url: "https://ozgetanirgungoren.com/img/ofis3.jpg", category: "ofis", title: "Ofis Tasarımı 3" },
+  // Yonetici
+  { url: "https://ozgetanirgungoren.com/img/berkaygungoren.jpg", category: "yonetici", title: "Berkay GÜNGÖREN" },
+  { url: "https://ozgetanirgungoren.com/img/ozgetanirgungoren.jpg", category: "yonetici", title: "Özge TANIR GÜNGÖREN" },
 
   // Okul
   { url: "https://ozgetanirgungoren.com/img/okul1.jpg", category: "okul", title: "Okul Projesi 1" },
@@ -1071,7 +1073,8 @@ document.getElementById('loadMoreBtn').addEventListener('click', () => {
 // Sayfa Yüklendiğinde Başlat
 window.addEventListener('DOMContentLoaded', renderGallery);
 </script>
-	
+</section>
+
 <section class="team-section scroll-anim">
 <h2 class="section-main-title">Gücümüzü<br>Uzmanlığımızdan Alıyoruz</h2>
 <div class="team-container">
