@@ -795,7 +795,7 @@ loop();
 <button class="btn btn-filled" onclick="openPanel('Detay', 'Down sendromlu bireylere erken çocukluktan itibaren sunulan rehabilitasyon seansları.')">Modülü Gör</button>
 </div>
 </div>
-</section>
+>
 <div class="tab-container scroll-anim" id="tabContainer">
 <div class="tab-item active" data-index="0">Otizm (OSB)</div>
 <div class="tab-item" data-index="1">Uyaran Eksikliği</div>
@@ -818,80 +818,261 @@ loop();
 <section class="gallery-fullscreen-section scroll-anim">
 <h2 class="section-main-title">Galeri</h2>
     
-<div class="gallery-slider-wrapper" id="gallerySlider">
+<!-- KATEGORİ FİLTRE BUTONLARI -->
+<div class="gallery-filter-wrapper">
+  <button class="filter-btn active" data-category="all">Tümü</button>
+  <button class="filter-btn" data-category="bekleme">Bekleme Alanları</button>
+  <button class="filter-btn" data-category="bina">Bina Dış Cephe</button>
+  <button class="filter-btn" data-category="ofis">Ofis Projeleri</button>
+  <button class="filter-btn" data-category="okul">Okul Projeleri</button>
 </div>
-</section>
+
+<!-- GALERİ KONTEYNERİ -->
+<div class="gallery-grid" id="galleryGrid"></div>
+
+<!-- DAHA FAZLA YÜKLE BUTONU -->
+<div class="load-more-wrapper">
+  <button id="loadMoreBtn" class="load-more-btn">Daha Fazla Yükle</button>
+</div>
+
+<!-- CSS STİLLERİ -->
+<style>
+  /* Filtre Butonları */
+  .gallery-filter-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+
+  .filter-btn {
+    padding: 10px 22px;
+    border: 1px solid #ddd;
+    background: #fff;
+    color: #333;
+    border-radius: 30px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .filter-btn:hover,
+  .filter-btn.active {
+    background: #222;
+    color: #fff;
+    border-color: #222;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  /* Grid Düzeni */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 10px;
+  }
+
+  /* Görsel Kartları & Hover Efektleri */
+  .gallery-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #f4f4f4;
+    aspect-ratio: 4 / 3;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  }
+
+  .gallery-item.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .gallery-item:hover img {
+    transform: scale(1.08);
+  }
+
+  /* Overlay Efekti */
+  .gallery-item-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    opacity: 0;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+    transition: opacity 0.3s ease;
+  }
+
+  .gallery-item:hover .gallery-item-overlay {
+    opacity: 1;
+  }
+
+  .gallery-item-title {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transform: translateY(10px);
+    transition: transform 0.3s ease;
+    text-transform: capitalize;
+  }
+
+  .gallery-item:hover .gallery-item-title {
+    transform: translateY(0);
+  }
+
+  /* Daha Fazla Yükle Butonu */
+  .load-more-wrapper {
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  .load-more-btn {
+    padding: 12px 36px;
+    background: transparent;
+    color: #222;
+    border: 2px solid #222;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .load-more-btn:hover {
+    background: #222;
+    color: #fff;
+  }
+
+  .load-more-btn.hidden {
+    display: none;
+  }
+</style>
+
+<!-- JAVASCRIPT MANTIĞI -->
 <script>
-// Galeri görsel havuzu
-const galleryImages = [
+// Nesne tabanlı veri yapısı (Kategori desteğiyle)
+const galleryData = [
   // Bekleme
-  "https://ozgetanirgungoren.com/img/bekleme1.jpg",
-  "https://ozgetanirgungoren.com/img/bekleme2.jpg",
-  "https://ozgetanirgungoren.com/img/bekleme3.jpg",
-  "https://ozgetanirgungoren.com/img/bekleme4.jpg",
-  "https://ozgetanirgungoren.com/img/bekleme5.jpg",
-  "https://ozgetanirgungoren.com/img/bekleme6.jpg",
+  { url: "https://ozgetanirgungoren.com/img/bekleme1.jpg", category: "bekleme", title: "Bekleme Alanı 1" },
+  { url: "https://ozgetanirgungoren.com/img/bekleme2.jpg", category: "bekleme", title: "Bekleme Alanı 2" },
+  { url: "https://ozgetanirgungoren.com/img/bekleme3.jpg", category: "bekleme", title: "Bekleme Alanı 3" },
+  { url: "https://ozgetanirgungoren.com/img/bekleme4.jpg", category: "bekleme", title: "Bekleme Alanı 4" },
+  { url: "https://ozgetanirgungoren.com/img/bekleme5.jpg", category: "bekleme", title: "Bekleme Alanı 5" },
+  { url: "https://ozgetanirgungoren.com/img/bekleme6.jpg", category: "bekleme", title: "Bekleme Alanı 6" },
 
   // Bina
-  "https://ozgetanirgungoren.com/img/bina1.jpg",
-  "https://ozgetanirgungoren.com/img/bina2.jpg",
-  "https://ozgetanirgungoren.com/img/bina3.jpg",
-  "https://ozgetanirgungoren.com/img/bina4.jpg",
+  { url: "https://ozgetanirgungoren.com/img/bina1.jpg", category: "bina", title: "Bina Projesi 1" },
+  { url: "https://ozgetanirgungoren.com/img/bina2.jpg", category: "bina", title: "Bina Projesi 2" },
+  { url: "https://ozgetanirgungoren.com/img/bina3.jpg", category: "bina", title: "Bina Projesi 3" },
+  { url: "https://ozgetanirgungoren.com/img/bina4.jpg", category: "bina", title: "Bina Projesi 4" },
 
   // Ofis
-  "https://ozgetanirgungoren.com/img/ofis1.jpg",
-  "https://ozgetanirgungoren.com/img/ofis2.jpg",
-  "https://ozgetanirgungoren.com/img/ofis3.jpg",
+  { url: "https://ozgetanirgungoren.com/img/ofis1.jpg", category: "ofis", title: "Ofis Tasarımı 1" },
+  { url: "https://ozgetanirgungoren.com/img/ofis2.jpg", category: "ofis", title: "Ofis Tasarımı 2" },
+  { url: "https://ozgetanirgungoren.com/img/ofis3.jpg", category: "ofis", title: "Ofis Tasarımı 3" },
 
   // Okul
-  "https://ozgetanirgungoren.com/img/okul1.jpg",
-  "https://ozgetanirgungoren.com/img/okul2.jpg",
-  "https://ozgetanirgungoren.com/img/okul3.jpg",
-  "https://ozgetanirgungoren.com/img/okul4.jpg",
-  "https://ozgetanirgungoren.com/img/okul5.jpg",
-  "https://ozgetanirgungoren.com/img/okul6.jpg",
-  "https://ozgetanirgungoren.com/img/okul7.jpg",
-  "https://ozgetanirgungoren.com/img/okul8.jpg",
-  "https://ozgetanirgungoren.com/img/okul9.jpg",
-  "https://ozgetanirgungoren.com/img/okul10.jpg",
-  "https://ozgetanirgungoren.com/img/okul11.jpg",
-  "https://ozgetanirgungoren.com/img/okul12.jpg",
-  "https://ozgetanirgungoren.com/img/okul13.jpg",
-  "https://ozgetanirgungoren.com/img/okul14.jpg"
+  { url: "https://ozgetanirgungoren.com/img/okul1.jpg", category: "okul", title: "Okul Projesi 1" },
+  { url: "https://ozgetanirgungoren.com/img/okul2.jpg", category: "okul", title: "Okul Projesi 2" },
+  { url: "https://ozgetanirgungoren.com/img/okul3.jpg", category: "okul", title: "Okul Projesi 3" },
+  { url: "https://ozgetanirgungoren.com/img/okul4.jpg", category: "okul", title: "Okul Projesi 4" },
+  { url: "https://ozgetanirgungoren.com/img/okul5.jpg", category: "okul", title: "Okul Projesi 5" },
+  { url: "https://ozgetanirgungoren.com/img/okul6.jpg", category: "okul", title: "Okul Projesi 6" },
+  { url: "https://ozgetanirgungoren.com/img/okul7.jpg", category: "okul", title: "Okul Projesi 7" },
+  { url: "https://ozgetanirgungoren.com/img/okul8.jpg", category: "okul", title: "Okul Projesi 8" },
+  { url: "https://ozgetanirgungoren.com/img/okul9.jpg", category: "okul", title: "Okul Projesi 9" },
+  { url: "https://ozgetanirgungoren.com/img/okul10.jpg", category: "okul", title: "Okul Projesi 10" },
+  { url: "https://ozgetanirgungoren.com/img/okul11.jpg", category: "okul", title: "Okul Projesi 11" },
+  { url: "https://ozgetanirgungoren.com/img/okul12.jpg", category: "okul", title: "Okul Projesi 12" },
+  { url: "https://ozgetanirgungoren.com/img/okul13.jpg", category: "okul", title: "Okul Projesi 13" },
+  { url: "https://ozgetanirgungoren.com/img/okul14.jpg", category: "okul", title: "Okul Projesi 14" }
 ];
-// Tüm görselleri yan yana listeleyen fonksiyon
-function generateCarouselGallery() {
-    const slider = document.getElementById('gallerySlider');
-    if (!slider) return;
 
-    // Önce konteyneri temizliyoruz
-    slider.innerHTML = '';
+// Ayarlar
+const ITEMS_PER_PAGE = 8;
+let currentCategory = 'all';
+let visibleCount = ITEMS_PER_PAGE;
+let filteredData = [...galleryData];
 
-    galleryImages.forEach((url, index) => {
-        const item = document.createElement('div');
-        item.className = 'gallery-item';
-        
-        const img = document.createElement('img');
-        img.src = url;
-        img.alt = `Galeri Görseli ${index + 1}`;
-        img.loading = "lazy";
-        
-        item.appendChild(img);
-        slider.appendChild(item);
-        
-        // Görsellerin sola doğru pürüzsüzce sırayla (akışkan bir geçişle) belirmesi
-        setTimeout(() => {
-            item.classList.add('fade-in');
-        }, index * 80); 
-    });
+function renderGallery() {
+  const grid = document.getElementById('galleryGrid');
+  const loadMoreBtn = document.getElementById('loadMoreBtn');
+  
+  if (!grid) return;
+
+  // Filtrelenmiş veri kümesi
+  filteredData = currentCategory === 'all' 
+    ? galleryData 
+    : galleryData.filter(item => item.category === currentCategory);
+
+  // Ekrana basılacak ögeleri dilimle
+  const itemsToRender = filteredData.slice(0, visibleCount);
+
+  // Grid içeriğini yenile
+  grid.innerHTML = '';
+
+  itemsToRender.forEach((item, index) => {
+    const el = document.createElement('div');
+    el.className = 'gallery-item';
+    
+    el.innerHTML = `
+      <img src="${item.url}" alt="${item.title}" loading="lazy">
+      <div class="gallery-item-overlay">
+        <span class="gallery-item-title">${item.title}</span>
+      </div>
+    `;
+
+    grid.appendChild(el);
+
+    // Kademeli belirme animasyonu (Fade-in & Slide-up)
+    setTimeout(() => {
+      el.classList.add('show');
+    }, index * 60);
+  });
+
+  // "Daha Fazla Yükle" buton görünürlük kontrolü
+  if (visibleCount >= filteredData.length) {
+    loadMoreBtn.classList.add('hidden');
+  } else {
+    loadMoreBtn.classList.remove('hidden');
+  }
 }
 
-// Sitenin mevcut DOMContentLoaded event listener'ı içerisine ekleyin
-window.addEventListener('DOMContentLoaded', function() {
-    generateCarouselGallery();
-});
-</script>
+// Filtre Butonları Tıklama Olayı
+document.querySelectorAll('.filter-btn').forEach(button => {
+  button.addEventListener('click', (e) => {
+    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+    e.target.classList.add('active');
 
+    currentCategory = e.target.getAttribute('data-category');
+    visibleCount = ITEMS_PER_PAGE; // Sayfalamayı sıfırla
+    renderGallery();
+  });
+});
+
+// "Daha Fazla Yükle" Buton Tıklama Olayı
+document.getElementById('loadMoreBtn').addEventListener('click', () => {
+  visibleCount += ITEMS_PER_PAGE;
+  renderGallery();
+});
+
+// Sayfa Yüklendiğinde Başlat
+window.addEventListener('DOMContentLoaded', renderGallery);
+</script>
+</section>
+	
 <section class="team-section scroll-anim">
 <h2 class="section-main-title">Gücümüzü<br>Uzmanlığımızdan Alıyoruz</h2>
 <div class="team-container">
