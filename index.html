@@ -814,6 +814,85 @@ loop();
 <div class="tab-item" data-index="14">Down Sendromu</div>
 </div>
 
+
+<section class="gallery-fullscreen-section scroll-anim">
+<h2 class="section-main-title">Galeri</h2>
+    
+<div class="gallery-slider-wrapper" id="gallerySlider">
+</div>
+</section>
+<script>
+// Galeri görsel havuzu
+const galleryImages = [
+  // Bekleme
+  "bekleme1.jpg",
+  "bekleme2.jpg",
+  "bekleme3.jpg",
+  "bekleme4.jpg",
+  "bekleme5.jpg",
+  "bekleme6.jpg",
+
+  // Bina
+  "bina1.jpg",
+  "bina2.jpg",
+  "bina3.jpg",
+  "bina4.jpg",
+
+  // Ofis
+  "ofis1.jpg",
+  "ofis2.jpg",
+  "ofis3.jpg",
+
+  // Okul
+  "okul1.jpg",
+  "okul2.jpg",
+  "okul3.jpg",
+  "okul4.jpg",
+  "okul5.jpg",
+  "okul6.jpg",
+  "okul7.jpg",
+  "okul8.jpg",
+  "okul9.jpg",
+  "okul10.jpg",
+  "okul11.jpg",
+  "okul12.jpg",
+  "okul13.jpg",
+  "okul14.jpg"
+];
+
+// Tüm görselleri yan yana listeleyen fonksiyon
+function generateCarouselGallery() {
+    const slider = document.getElementById('gallerySlider');
+    if (!slider) return;
+
+    // Önce konteyneri temizliyoruz
+    slider.innerHTML = '';
+
+    galleryImages.forEach((url, index) => {
+        const item = document.createElement('div');
+        item.className = 'gallery-item';
+        
+        const img = document.createElement('img');
+        img.src = url;
+        img.alt = `Galeri Görseli ${index + 1}`;
+        img.loading = "lazy";
+        
+        item.appendChild(img);
+        slider.appendChild(item);
+        
+        // Görsellerin sola doğru pürüzsüzce sırayla (akışkan bir geçişle) belirmesi
+        setTimeout(() => {
+            item.classList.add('fade-in');
+        }, index * 80); 
+    });
+}
+
+// Sitenin mevcut DOMContentLoaded event listener'ı içerisine ekleyin
+window.addEventListener('DOMContentLoaded', function() {
+    generateCarouselGallery();
+});
+</script>
+
 <section class="team-section scroll-anim">
 <h2 class="section-main-title">Gücümüzü<br>Uzmanlığımızdan Alıyoruz</h2>
 <div class="team-container">
@@ -908,59 +987,6 @@ loop();
 <button class="camp-btn" onclick="toggleInfoForm()">Bilgi Alın</button>
 </div>
 </div>
-
-<section class="gallery-fullscreen-section scroll-anim">
-<h2 class="section-main-title">Galeri</h2>
-    
-<div class="gallery-slider-wrapper" id="gallerySlider">
-</div>
-</section>
-<script>
-// Galeri görsel havuzu
-const galleryImages = [
-    "https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=600",
-    "https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=600",
-    "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=600",
-    "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?q=80&w=600",
-    "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=600",
-    "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=600",
-    "https://images.unsplash.com/photo-1516534775068-ba3e84589d90?q=80&w=600",
-    "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?q=80&w=600",
-    "https://images.unsplash.com/photo-1551846041-d13def73c47d?q=80&w=600"
-];
-
-// Tüm görselleri yan yana listeleyen fonksiyon
-function generateCarouselGallery() {
-    const slider = document.getElementById('gallerySlider');
-    if (!slider) return;
-
-    // Önce konteyneri temizliyoruz
-    slider.innerHTML = '';
-
-    galleryImages.forEach((url, index) => {
-        const item = document.createElement('div');
-        item.className = 'gallery-item';
-        
-        const img = document.createElement('img');
-        img.src = url;
-        img.alt = `Galeri Görseli ${index + 1}`;
-        img.loading = "lazy";
-        
-        item.appendChild(img);
-        slider.appendChild(item);
-        
-        // Görsellerin sola doğru pürüzsüzce sırayla (akışkan bir geçişle) belirmesi
-        setTimeout(() => {
-            item.classList.add('fade-in');
-        }, index * 80); 
-    });
-}
-
-// Sitenin mevcut DOMContentLoaded event listener'ı içerisine ekleyin
-window.addEventListener('DOMContentLoaded', function() {
-    generateCarouselGallery();
-});
-</script>
 
 <section class="where-we-are-section scroll-anim">
 <span class="contact-sub">Ulaşım & İletişim</span>
